@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "BBB",
+    "BRB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bricks"
+    },
+    "R": {
+      "item": "minecraft:blaze_powder"
+    }
+  },
+  "result": {
+    "item": "fmod:bfurnace",
+    "count": 1
+  }
+}

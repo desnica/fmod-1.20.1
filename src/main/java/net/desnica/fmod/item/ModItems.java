@@ -25,6 +25,8 @@ public class ModItems {
     public static final Item COPPER_BULLET = registerItem("copper_bullet", new Item(new FabricItemSettings()));
     public static final Item FLINTLOCK = registerItem("flintlock", new FlintlockItem(new FabricItemSettings().maxCount(1)));
 
+    public static final Item SLAG = registerItem("slag", new Item(new FabricItemSettings()));
+
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registries.ITEM, new Identifier(Fmod.MOD_ID, name), item);
     }

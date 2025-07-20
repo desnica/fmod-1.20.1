@@ -11,5 +11,6 @@
   "item.fmod.flintlock": "Flintlock",
   "item.fmod.barrel": "Barrel",
   "item.fmod.handle": "Handle",
-  "item.fmod.copper_bullet": "Copper Bullet"
+  "item.fmod.copper_bullet": "Copper Bullet",
+  "item.fmod.slag": "Slag"
 }

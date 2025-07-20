@@ -31,13 +31,13 @@ public class BFurnaceScreenHandler extends ScreenHandler {
         this.propertyDelegate = arrayPropertyDelegate;
         this.blockEntity = ((BFurnaceBlockEntity) blockEntity);
 
-        // Input slot (original)
+
         this.addSlot(new Slot(inventory, 0, 80, 11));
-        // Output slot (original)
+
         this.addSlot(new Slot(inventory, 1, 80, 59));
-        // New slot: 30 pixels right of input slot
+
         this.addSlot(new Slot(inventory, 2, 110, 11));
-        // New slot: 30 pixels right of output slot
+
         this.addSlot(new Slot(inventory, 3, 110, 59));
 
         addPlayerInventory(playerInventory);
@@ -52,8 +52,8 @@ public class BFurnaceScreenHandler extends ScreenHandler {
 
     public int getScaledProgress() {
         int progress = this.propertyDelegate.get(0);
-        int maxProgress = this.propertyDelegate.get(1);  // Max Progress
-        int progressArrowSize = 26; // This is the width in pixels of your arrow
+        int maxProgress = this.propertyDelegate.get(1);
+        int progressArrowSize = 26;
 
         return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
     }
@@ -66,12 +66,12 @@ public class BFurnaceScreenHandler extends ScreenHandler {
             ItemStack originalStack = slot.getStack();
             newStack = originalStack.copy();
             if (invSlot < this.inventory.size()) {
-                // From block inventory to player inventory
+
                 if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
             } else {
-                // From player inventory to block inventory
+
                 if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
                     return ItemStack.EMPTY;
                 }

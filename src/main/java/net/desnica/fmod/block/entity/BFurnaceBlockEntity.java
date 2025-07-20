@@ -30,8 +30,8 @@ public class BFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHa
 
     private static final int INPUT_SLOT_IRON = 0;
     private static final int OUTPUT_SLOT_STEEL = 1;
-    private static final int INPUT_SLOT_CHARCOAL = 2;
-    private static final int OUTPUT_SLOT_GUNPOWDER = 3;
+    private static final int INPUT_SLOT_FUEL = 2;
+    private static final int OUTPUT_SLOT_SLAG = 3;
 
     protected final PropertyDelegate propertyDelegate;
     private int progress = 0;
@@ -154,11 +154,11 @@ public class BFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHa
     }
 
     private void craftItem() {
-        // Check which recipe is active
-        if (getStack(INPUT_SLOT_IRON).getItem() == ModItems.STEEL_INGOT && getStack(INPUT_SLOT_CHARCOAL).getItem() == Items.LAVA_BUCKET) {
-            // Steel + Lava recipe
+
+        if (getStack(INPUT_SLOT_IRON).getItem() == ModItems.STEEL_INGOT && getStack(INPUT_SLOT_FUEL).getItem() == Items.LAVA_BUCKET) {
+
             this.removeStack(INPUT_SLOT_IRON, 1); // Remove 1 steel ingot
-            this.removeStack(INPUT_SLOT_CHARCOAL, 1); // Remove 1 lava bucket
+            this.removeStack(INPUT_SLOT_FUEL, 1); // Remove 1 lava bucket
 
             ItemStack hotSteelResult = new ItemStack(ModItems.HOT_STEEL_INGOT);
             this.setStack(OUTPUT_SLOT_STEEL, new ItemStack(
@@ -166,26 +166,26 @@ public class BFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHa
                     getStack(OUTPUT_SLOT_STEEL).getCount() + hotSteelResult.getCount()
             ));
 
-            // Return empty bucket to charcoal slot (if empty)
-            if (getStack(INPUT_SLOT_CHARCOAL).isEmpty()) {
-                this.setStack(INPUT_SLOT_CHARCOAL, new ItemStack(Items.BUCKET));
+
+            if (getStack(INPUT_SLOT_FUEL).isEmpty()) {
+                this.setStack(INPUT_SLOT_FUEL, new ItemStack(Items.BUCKET));
             }
-        } else if (getStack(INPUT_SLOT_IRON).getItem() == Items.IRON_INGOT && getStack(INPUT_SLOT_CHARCOAL).getItem() == Items.CHARCOAL) {
+        } else if (getStack(INPUT_SLOT_IRON).getItem() == Items.IRON_INGOT && getStack(INPUT_SLOT_FUEL).getItem() == Items.CHARCOAL) {
             // Original Iron + Charcoal recipe
-            this.removeStack(INPUT_SLOT_IRON, 1); // Remove 1 iron ingot
-            this.removeStack(INPUT_SLOT_CHARCOAL, 1); // Remove 1 charcoal
+            this.removeStack(INPUT_SLOT_IRON, 1);
+            this.removeStack(INPUT_SLOT_FUEL, 1);
 
             ItemStack steelResult = new ItemStack(ModItems.STEEL_INGOT);
-            ItemStack gunpowderResult = new ItemStack(Items.GUNPOWDER);
+            ItemStack slagResult = new ItemStack(ModItems.SLAG);
 
             this.setStack(OUTPUT_SLOT_STEEL, new ItemStack(
                     steelResult.getItem(),
                     getStack(OUTPUT_SLOT_STEEL).getCount() + steelResult.getCount()
             ));
 
-            this.setStack(OUTPUT_SLOT_GUNPOWDER, new ItemStack(
-                    gunpowderResult.getItem(),
-                    getStack(OUTPUT_SLOT_GUNPOWDER).getCount() + gunpowderResult.getCount()
+            this.setStack(OUTPUT_SLOT_SLAG, new ItemStack(
+                    slagResult.getItem(),
+                    getStack(OUTPUT_SLOT_SLAG).getCount() + slagResult.getCount()
             ));
         }
     }
@@ -202,19 +202,19 @@ public class BFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHa
         // Check for Steel + Lava recipe
         ItemStack hotSteelResult = new ItemStack(ModItems.HOT_STEEL_INGOT);
         boolean hasSteelAndLava = getStack(INPUT_SLOT_IRON).getItem() == ModItems.STEEL_INGOT &&
-                getStack(INPUT_SLOT_CHARCOAL).getItem() == Items.LAVA_BUCKET &&
+                getStack(INPUT_SLOT_FUEL).getItem() == Items.LAVA_BUCKET &&
                 canInsertAmountIntoOutputSlot(hotSteelResult, OUTPUT_SLOT_STEEL) &&
                 canInsertItemIntoOutputSlot(hotSteelResult.getItem(), OUTPUT_SLOT_STEEL);
 
         // Check for Iron + Charcoal recipe
         ItemStack steelResult = new ItemStack(ModItems.STEEL_INGOT);
-        ItemStack gunpowderResult = new ItemStack(Items.GUNPOWDER);
+        ItemStack slagResult = new ItemStack(ModItems.SLAG);
         boolean hasIronAndCharcoal = getStack(INPUT_SLOT_IRON).getItem() == Items.IRON_INGOT &&
-                getStack(INPUT_SLOT_CHARCOAL).getItem() == Items.CHARCOAL &&
+                getStack(INPUT_SLOT_FUEL).getItem() == Items.CHARCOAL &&
                 canInsertAmountIntoOutputSlot(steelResult, OUTPUT_SLOT_STEEL) &&
                 canInsertItemIntoOutputSlot(steelResult.getItem(), OUTPUT_SLOT_STEEL) &&
-                canInsertAmountIntoOutputSlot(gunpowderResult, OUTPUT_SLOT_GUNPOWDER) &&
-                canInsertItemIntoOutputSlot(gunpowderResult.getItem(), OUTPUT_SLOT_GUNPOWDER);
+                canInsertAmountIntoOutputSlot(slagResult, OUTPUT_SLOT_SLAG) &&
+                canInsertItemIntoOutputSlot(slagResult.getItem(), OUTPUT_SLOT_SLAG);
 
         return hasSteelAndLava || hasIronAndCharcoal;
     }
@@ -233,8 +233,8 @@ public class BFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHa
                 this.getStack(OUTPUT_SLOT_STEEL).getCount() < this.getStack(OUTPUT_SLOT_STEEL).getMaxCount();
 
         // For Iron + Charcoal recipe, check both output slots
-        boolean gunpowderOutputValid = this.getStack(OUTPUT_SLOT_GUNPOWDER).isEmpty() ||
-                this.getStack(OUTPUT_SLOT_GUNPOWDER).getCount() < this.getStack(OUTPUT_SLOT_GUNPOWDER).getMaxCount();
+        boolean gunpowderOutputValid = this.getStack(OUTPUT_SLOT_SLAG).isEmpty() ||
+                this.getStack(OUTPUT_SLOT_SLAG).getCount() < this.getStack(OUTPUT_SLOT_SLAG).getMaxCount();
 
         // Return true if either recipe's output conditions are met
         return steelOutputValid && (getStack(INPUT_SLOT_IRON).getItem() != Items.IRON_INGOT || gunpowderOutputValid);

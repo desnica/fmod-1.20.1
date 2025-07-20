@@ -31,6 +31,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.COPPER_BULLET);
 
+                        entries.add(ModItems.SLAG);
+
                     }).build());
 
     public static void registerItemGroups() {

@@ -3,6 +3,7 @@
   "category": "misc",
   "pattern": [
     "S",
+    "S",
     "#"
   ],
   "key": {
@@ -14,7 +15,7 @@
     }
   },
   "result": {
-    "item": "fmod:knife",
+    "item": "fmod:steel_sword",
     "count": 1
   }
 }

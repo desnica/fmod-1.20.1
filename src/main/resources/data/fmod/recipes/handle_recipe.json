@@ -2,19 +2,19 @@
   "type": "minecraft:crafting_shaped",
   "category": "misc",
   "pattern": [
-    "S",
-    "#"
+    " SS",
+    "  #"
   ],
   "key": {
     "#": {
-      "item": "minecraft:stick"
+      "item": "minecraft:oak_planks"
     },
     "S": {
       "item": "fmod:hardened_steel_ingot"
     }
   },
   "result": {
-    "item": "fmod:knife",
+    "item": "fmod:handle",
     "count": 1
   }
 }

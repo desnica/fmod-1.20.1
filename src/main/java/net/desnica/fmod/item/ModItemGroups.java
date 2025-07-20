@@ -15,11 +15,22 @@ public class ModItemGroups {
             new Identifier(Fmod.MOD_ID, "steel"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.steel"))
                     .icon(() -> new ItemStack(ModItems.STEEL_INGOT)).entries((displayContext, entries) -> {
-                    entries.add(ModItems.STEEL_INGOT);
-                    entries.add(ModItems.KNIFE);
-                    entries.add(ModBlocks.STEEL_BLOCK);
-                    entries.add(ModBlocks.BFURNACE);
-                    entries.add(ModItems.BERSERK_SWORD);
+
+                        entries.add(ModItems.STEEL_SWORD);
+                        entries.add(ModItems.KNIFE);
+
+                        entries.add(ModItems.STEEL_INGOT);
+                        entries.add(ModItems.HARDENED_STEEL_INGOT);
+
+                        entries.add(ModBlocks.STEEL_BLOCK);
+                        entries.add(ModBlocks.BFURNACE);
+
+                        entries.add(ModItems.HANDLE);
+                        entries.add(ModItems.BARREL);
+                        entries.add(ModItems.FLINTLOCK);
+
+                        entries.add(ModItems.COPPER_BULLET);
+
                     }).build());
 
     public static void registerItemGroups() {

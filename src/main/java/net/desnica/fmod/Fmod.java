@@ -2,6 +2,7 @@ package net.desnica.fmod;
 
 import net.desnica.fmod.block.ModBlocks;
 import net.desnica.fmod.block.entity.ModBlockEntities;
+import net.desnica.fmod.entity.ModEntities;
 import net.desnica.fmod.item.ModItemGroups;
 import net.desnica.fmod.item.ModItems;
 import net.desnica.fmod.screen.ModScreenHandlers;

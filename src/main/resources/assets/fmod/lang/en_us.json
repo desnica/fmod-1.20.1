@@ -4,5 +4,12 @@
   "itemgroup.steel": "Steel",
   "block.fmod.steel_block": "Steel Block",
   "block.fmod.bfurnace": "Burning Furnace",
-  "item.fmod.berserk_sword": "Berserk Sword"
+  "item.fmod.steel_sword": "Steel Sword",
+  "item.fmod.hot_steel_ingot": "Hot Steel Ingot",
+  "item.fmod.hot_steel_ingot.tooltip": "Cool it down!",
+  "item.fmod.hardened_steel_ingot": "Hardened Steel Ingot",
+  "item.fmod.flintlock": "Flintlock",
+  "item.fmod.barrel": "Barrel",
+  "item.fmod.handle": "Handle",
+  "item.fmod.copper_bullet": "Copper Bullet"
 }

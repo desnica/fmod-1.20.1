@@ -7,14 +7,14 @@
   ],
   "key": {
     "#": {
-      "item": "minecraft:stick"
+      "item": "fmod:handle"
     },
     "S": {
-      "item": "fmod:hardened_steel_ingot"
+      "item": "fmod:barrel"
     }
   },
   "result": {
-    "item": "fmod:knife",
+    "item": "fmod:flintlock",
     "count": 1
   }
 }

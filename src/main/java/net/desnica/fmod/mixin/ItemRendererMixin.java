@@ -19,11 +19,11 @@ public abstract class ItemRendererMixin {
     public BakedModel useCustomModel(BakedModel value, ItemStack stack, ModelTransformationMode renderMode, boolean leftHanded, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light, int overlay) {
         if (renderMode != ModelTransformationMode.GUI && renderMode != ModelTransformationMode.FIXED) {
             if (stack.isOf(ModItems.STEEL_SWORD)) {
-                System.out.println("Rendering STEEL_SWORD with model: fmod:steel_sword_3d");
+
                 return ((ItemRendererAccessor) this).fmod$getModels().getModelManager().getModel(new ModelIdentifier(Fmod.MOD_ID, "steel_sword_3d", "inventory"));
             }
             if (stack.isOf(ModItems.FLINTLOCK)) {
-                System.out.println("Rendering FLINTLOCK with model: fmod:flintlock");
+
                 return ((ItemRendererAccessor) this).fmod$getModels().getModelManager().getModel(new ModelIdentifier(Fmod.MOD_ID, "flintlock", "inventory"));
             }
         }

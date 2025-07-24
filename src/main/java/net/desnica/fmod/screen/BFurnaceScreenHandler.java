@@ -25,7 +25,7 @@ public class BFurnaceScreenHandler extends ScreenHandler {
     public BFurnaceScreenHandler(int syncId, PlayerInventory playerInventory,
                                  BlockEntity blockEntity, PropertyDelegate arrayPropertyDelegate) {
         super(ModScreenHandlers.BFURNACE_SCREEN_HANDLER, syncId);
-        checkSize(((Inventory) blockEntity), 4); // Updated to 4 slots
+        checkSize(((Inventory) blockEntity), 4);
         this.inventory = ((Inventory) blockEntity);
         inventory.onOpen(playerInventory.player);
         this.propertyDelegate = arrayPropertyDelegate;

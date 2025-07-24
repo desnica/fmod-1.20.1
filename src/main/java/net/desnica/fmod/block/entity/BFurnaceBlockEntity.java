@@ -157,8 +157,8 @@ public class BFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHa
 
         if (getStack(INPUT_SLOT_IRON).getItem() == ModItems.STEEL_INGOT && getStack(INPUT_SLOT_FUEL).getItem() == Items.LAVA_BUCKET) {
 
-            this.removeStack(INPUT_SLOT_IRON, 1); // Remove 1 steel ingot
-            this.removeStack(INPUT_SLOT_FUEL, 1); // Remove 1 lava bucket
+            this.removeStack(INPUT_SLOT_IRON, 1);
+            this.removeStack(INPUT_SLOT_FUEL, 1);
 
             ItemStack hotSteelResult = new ItemStack(ModItems.HOT_STEEL_INGOT);
             this.setStack(OUTPUT_SLOT_STEEL, new ItemStack(
@@ -199,14 +199,13 @@ public class BFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHa
     }
 
     private boolean hasRecipe() {
-        // Check for Steel + Lava recipe
         ItemStack hotSteelResult = new ItemStack(ModItems.HOT_STEEL_INGOT);
         boolean hasSteelAndLava = getStack(INPUT_SLOT_IRON).getItem() == ModItems.STEEL_INGOT &&
                 getStack(INPUT_SLOT_FUEL).getItem() == Items.LAVA_BUCKET &&
                 canInsertAmountIntoOutputSlot(hotSteelResult, OUTPUT_SLOT_STEEL) &&
                 canInsertItemIntoOutputSlot(hotSteelResult.getItem(), OUTPUT_SLOT_STEEL);
 
-        // Check for Iron + Charcoal recipe
+
         ItemStack steelResult = new ItemStack(ModItems.STEEL_INGOT);
         ItemStack slagResult = new ItemStack(ModItems.SLAG);
         boolean hasIronAndCharcoal = getStack(INPUT_SLOT_IRON).getItem() == Items.IRON_INGOT &&
@@ -228,15 +227,15 @@ public class BFurnaceBlockEntity extends BlockEntity implements ExtendedScreenHa
     }
 
     private boolean isOutputSlotsEmptyOrReceivable() {
-        // For Steel + Lava recipe, only check OUTPUT_SLOT_STEEL
+
         boolean steelOutputValid = this.getStack(OUTPUT_SLOT_STEEL).isEmpty() ||
                 this.getStack(OUTPUT_SLOT_STEEL).getCount() < this.getStack(OUTPUT_SLOT_STEEL).getMaxCount();
 
-        // For Iron + Charcoal recipe, check both output slots
+
         boolean gunpowderOutputValid = this.getStack(OUTPUT_SLOT_SLAG).isEmpty() ||
                 this.getStack(OUTPUT_SLOT_SLAG).getCount() < this.getStack(OUTPUT_SLOT_SLAG).getMaxCount();
 
-        // Return true if either recipe's output conditions are met
+
         return steelOutputValid && (getStack(INPUT_SLOT_IRON).getItem() != Items.IRON_INGOT || gunpowderOutputValid);
     }
 }

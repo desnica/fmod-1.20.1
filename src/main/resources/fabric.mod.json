@@ -3,13 +3,13 @@
 	"id": "fmod",
 	"version": "${version}",
 	"name": "Fmod",
-	"description": "Ya Eblan!!!",
+	"description": "Probably best steel mod",
 	"authors": [
 		"desnica"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/desnica/fmod-1.20.1"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/fmod/icon.png",

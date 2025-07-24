@@ -1,11 +1,18 @@
 {
-  "type": "minecraft:crafting_shapeless",
+  "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "ingredients": [
-    {
-      "item": "minecraft:copper_ingot"
-    }
+  "pattern": [
+    "S",
+    "#"
   ],
+  "key": {
+    "#": {
+      "item": "minecraft:copper_ingot"
+    },
+    "S": {
+      "item": "minecraft:gunpowder"
+    }
+  },
   "result": {
     "item": "fmod:copper_bullet",
     "count": 4

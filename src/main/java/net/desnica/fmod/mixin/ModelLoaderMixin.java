@@ -27,5 +27,11 @@ public abstract class ModelLoaderMixin {
         this.addModel(new ModelIdentifier(Fmod.MOD_ID, "steel_sword_3d", "inventory"));
 
         this.addModel(new ModelIdentifier(Fmod.MOD_ID, "flintlock", "inventory"));
+
+        this.addModel(new ModelIdentifier(Fmod.MOD_ID, "knife_3d", "inventory"));
+
+        this.addModel(new ModelIdentifier(Fmod.MOD_ID, "poisoned_knife_3d", "inventory"));
+
+        this.addModel(new ModelIdentifier(Fmod.MOD_ID, "withered_knife_3d", "inventory"));
     }
 }

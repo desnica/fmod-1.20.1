@@ -12,5 +12,9 @@
   "item.fmod.barrel": "Barrel",
   "item.fmod.handle": "Handle",
   "item.fmod.copper_bullet": "Copper Bullet",
-  "item.fmod.slag": "Slag"
+  "item.fmod.slag": "Slag",
+  "item.fmod.poisoned_knife.tooltip": "Applies Poison Effect for 5 seconds on hit",
+  "item.fmod.withered_knife.tooltip": "Applies Wither Effect for 3 seconds on hit",
+  "item.fmod.poisoned_knife": "Poisoned Knife",
+  "item.fmod.withered_knife": "Withered Knife"
 }

@@ -17,18 +17,18 @@ public class CopperProjectileEntity extends PersistentProjectileEntity{
     public CopperProjectileEntity(EntityType<? extends CopperProjectileEntity> type, World world) {
         super(type, world);
         this.setDamage(3.0);
-        this.pickupType = PickupPermission.DISALLOWED;
+        this.pickupType = PickupPermission.ALLOWED;
     }
 
     public CopperProjectileEntity(World world, LivingEntity owner) {
         super(ModEntities.COPPER_PROJECTILE, owner, world);
         this.setPosition(owner.getX(), owner.getEyeY() - 0.1, owner.getZ());
         this.setDamage(3.0);
-        this.pickupType = PickupPermission.DISALLOWED;
+        this.pickupType = PickupPermission.ALLOWED;
     }
 
     @Override
-    protected ItemStack asItemStack() {
+    public ItemStack asItemStack() {
         return new ItemStack(ModItems.COPPER_BULLET);
     }
 

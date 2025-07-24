@@ -26,6 +26,18 @@ public abstract class ItemRendererMixin {
 
                 return ((ItemRendererAccessor) this).fmod$getModels().getModelManager().getModel(new ModelIdentifier(Fmod.MOD_ID, "flintlock", "inventory"));
             }
+            if (stack.isOf(ModItems.KNIFE)) {
+
+                return ((ItemRendererAccessor) this).fmod$getModels().getModelManager().getModel(new ModelIdentifier(Fmod.MOD_ID, "knife_3d", "inventory"));
+            }
+            if (stack.isOf(ModItems.POISONED_KNIFE)) {
+
+                return ((ItemRendererAccessor) this).fmod$getModels().getModelManager().getModel(new ModelIdentifier(Fmod.MOD_ID, "poisoned_knife_3d", "inventory"));
+            }
+            if (stack.isOf(ModItems.WITHERED_KNIFE)) {
+
+                return ((ItemRendererAccessor) this).fmod$getModels().getModelManager().getModel(new ModelIdentifier(Fmod.MOD_ID, "withered_knife_3d", "inventory"));
+            }
         }
         return value;
     }

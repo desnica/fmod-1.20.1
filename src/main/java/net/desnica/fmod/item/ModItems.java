@@ -11,7 +11,13 @@ import net.minecraft.util.Identifier;
 public class ModItems {
 
     public static final Item KNIFE = registerItem("knife",
-            new SwordItem(SteelMaterial.STEEL_MATERIAL, 2, -1.8F, new FabricItemSettings()));
+            new SwordItem(SteelMaterial.STEEL_MATERIAL, 2, -1.5F, new FabricItemSettings()));
+
+    public static final Item POISONED_KNIFE = registerItem("poisoned_knife",
+            new PoisonedKnifeItem(SteelMaterial.STEEL_MATERIAL, 2, -1.3F, new FabricItemSettings()));
+
+    public static final Item WITHERED_KNIFE = registerItem("withered_knife",
+            new WitheredKnifeItem(SteelMaterial.STEEL_MATERIAL, 3, -1.0F, new FabricItemSettings()));
 
     public static final Item STEEL_INGOT = registerItem("steel_ingot", new Item(new FabricItemSettings()));
     public static final Item HOT_STEEL_INGOT = registerItem("hot_steel_ingot", new HotSteelIngotItem(new FabricItemSettings()));

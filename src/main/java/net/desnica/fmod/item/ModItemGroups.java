@@ -18,7 +18,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.STEEL_SWORD);
                         entries.add(ModItems.KNIFE);
-
+                        entries.add(ModItems.POISONED_KNIFE);
+                        entries.add(ModItems.WITHERED_KNIFE);
                         entries.add(ModItems.STEEL_INGOT);
                         entries.add(ModItems.HARDENED_STEEL_INGOT);
 

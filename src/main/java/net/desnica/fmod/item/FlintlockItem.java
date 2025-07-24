@@ -5,6 +5,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.RangedWeaponItem;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
@@ -31,13 +32,14 @@ public class FlintlockItem extends RangedWeaponItem {
             if (!ammo.isEmpty() || player.getAbilities().creativeMode) {
                 if (!world.isClient) {
                     CopperProjectileEntity projectile = new CopperProjectileEntity(world, player);
-                    projectile.setVelocity(player, player.getPitch(), player.getYaw(), 0.0f, pullProgress * 3.0f, 1.0f);
+                    projectile.setVelocity(player, player.getPitch(), player.getYaw(), 0.0f, pullProgress * 6.0f, 1.0f);
 
                     if (pullProgress >= 1.0f) {
                         projectile.setCritical(true);
                     }
                     projectile.setDamage(projectile.getDamage() + pullProgress * 3.0);
                     world.spawnEntity(projectile);
+
                 }
 
                 world.playSound(
@@ -81,7 +83,7 @@ public class FlintlockItem extends RangedWeaponItem {
 
     @Override
     public int getRange() {
-        return 30;
+        return 60;
     }
 
     @Override

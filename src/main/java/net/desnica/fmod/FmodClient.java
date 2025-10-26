@@ -6,6 +6,7 @@ import net.desnica.fmod.screen.BFurnaceScreen;
 import net.desnica.fmod.screen.ModScreenHandlers;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -23,9 +24,11 @@ public class FmodClient implements ClientModInitializer {
     public void onInitializeClient() {
 
         EntityRendererRegistry.register(ModEntities.COPPER_PROJECTILE, CustomProjectileRenderer::new);
-
-
         HandledScreens.register(ModScreenHandlers.BFURNACE_SCREEN_HANDLER, BFurnaceScreen::new);
+
+        HudRenderCallback.EVENT.register((context, tickDelta) -> {
+            new BulletHud().renderBullet(context);
+        });
     }
 
     private static class CustomProjectileRenderer extends EntityRenderer<CopperProjectileEntity> {

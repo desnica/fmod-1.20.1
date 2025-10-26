@@ -19,4 +19,5 @@ public class ModEntities {
                     .trackedUpdateRate(10)
                     .build()
     );
+
 }
